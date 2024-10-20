@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Future Works</title>
     <style>
+        .video-bg {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            filter: brightness(50%);
+        }
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -49,9 +60,13 @@
     </style>
 </head>
 <body>
-
+<video autoplay muted loop playsinline class="video-bg">
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
 <header>
-    <h1>My Future Works</h1>
+    <h1>My Projects </h1>
 </header>
 
 <section class="projects">
