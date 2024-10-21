@@ -13,15 +13,9 @@
             font-family: 'Poppins';
         }
 
-        .video-bg {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            z-index: -1;
-            object-fit: cover;
-            filter: brightness(50%);
+        body {
+            background-image: url('night.jpg');
+            background-size: cover;
         }
 
         body {
@@ -107,10 +101,6 @@
 
 <body>
 
-    <video autoplay muted loop playsinline class="video-bg">
-        <source src="bg.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
 
     <header>
         <h1>My Projects</h1>
