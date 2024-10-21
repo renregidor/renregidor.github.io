@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Future Works</title>
+    <title>Renoir</title>
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins';
+        }
+
         .video-bg {
             position: fixed;
             right: 0;
@@ -15,9 +23,9 @@
             object-fit: cover;
             filter: brightness(50%);
         }
-        
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
@@ -25,7 +33,6 @@
         }
 
         header {
-            background-color: #333;
             color: white;
             padding: 10px 0;
             margin-bottom: 20px;
@@ -35,6 +42,11 @@
             margin: 0;
         }
 
+        h2 {
+            color: white;
+        }
+
+
         .projects {
             display: flex;
             flex-direction: column;
@@ -42,41 +54,85 @@
         }
 
         .projects a {
+            font-size: 23px;
+            color: #fff;
             text-decoration: none;
-            color: #333;
-            background-color: #fff;
-            padding: 10px 20px;
+            border: 2px solid #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
             margin: 10px;
-            width: 200px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
+            transition: 0.5s;
         }
 
         .projects a:hover {
-            background-color: #007BFF;
+            -webkit-text-stroke: 2px #fff;
             color: white;
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 17px;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            -webkit-text-stroke: 2px #fff;
+            color: transparent;
         }
     </style>
 </head>
+
 <body>
-<video autoplay muted loop playsinline class="video-bg">
-        <source src="video.mp4" type="video/mp4">
+
+    <video autoplay muted loop playsinline class="video-bg">
+        <source src="bg.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    
-<header>
-    <h1>My Projects </h1>
-</header>
 
-<section class="projects">
-    <h2>Project Links</h2>
-    <a href="project1.html">Project 1</a>
-    <a href="project2.html">Project 2</a>
-    <a href="project3.html">Project 3</a>
-    <a href="project4.html">Project 4</a>
-    <a href="project5.html">Project 5</a>
-</section>
+    <header>
+        <h1>My Projects</h1>
+    </header>
+
+    <section class="projects">
+        <h2>HELLO</h2>
+        <a href="project1.html">Project 1</a>
+        <a href="project2.html">Project 2</a>
+        <a href="project3.html">Project 3</a>
+        <a href="project4.html">Project 4</a>
+        <a href="project5.html">Project 5</a>
+    </section>
+
+    <nav>
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT ME</a></li>
+            <li><a href="#">CONTACT US</a></li>
+        </ul>
+    </nav>
 
 </body>
+
 </html>
