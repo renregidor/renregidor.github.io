@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renoir</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             padding: 0;
@@ -30,6 +31,78 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            overflow: hidden;
+        }
+
+        .container{
+            top: 20px;
+            left: 20px;
+            height: 70px;
+            width: 70px;
+            background-color: #fff;
+            border-radius: 50px;
+            position: fixed;
+            transition: 0.4s ease;
+        }
+
+        .container.active {
+            height: 300px;
+        }
+
+        .toggleBox{
+            position: relative;
+            display: block;
+            height: 70px;
+            width: 70px;
+            border-radius: 50px;
+        }
+
+        .icon {
+            position: absolute;
+            height: 4px;
+            width: 35px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #161d2c;
+            border-radius: 50px;
+        }
+
+        .icon::before,.icon::after {
+            position: absolute;
+            content: '';
+            height: 4px;
+            width: 35px;
+            
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #161d2c;
+            border-radius: 50px;
+            transition: 0.3s; 
+        }
+
+        .toggleBox.active .icon {
+            width: 0;
+        }
+
+        .icon::before {
+            top: 12px;
+        }
+
+        .icon::after {
+            bottom: 8px;
+        }
+
+        .toggleBox.active .icon::before {
+            width: 40px;
+            transform-origin: right;
+            transform: translate(-25px, 4px) rotate(45deg);
+        }
+
+        .toggleBox.active .icon::after {
+            width: 40px;
+            transform-origin: right;
+            transform: translate(-25px, -6px) rotate(-45deg);
         }
 
         header {
@@ -69,44 +142,125 @@
             color: white;
         }
 
-        nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            align-items: center;
+        .nav {
+            width: 100%;
+            visibility: hidden;
         }
 
-        nav ul {
+        .container.active .nav {
+            visibility: visible;
+        }
+
+        li {
             list-style: none;
-            display: flex;
-            gap: 20px;
         }
 
-        nav ul li {
-            margin: 0;
+        li a {
+            text-transform: uppercase;
+            color: #161d2c;
         }
 
-        nav ul li a {
-            text-decoration: none;
+        li a i{
+            position: relative;
+            display: block;
+            font-size: 10px;
+            padding: 25px 0;
+            width: 100%;
+            text-align: center;
+            transform: scale(0);
+        }
+
+        li a i::after {
+            position: absolute;
+            content: '';
+            top: 50%;
+            right: 0;
+            width: 0px;
+            height: 50%;
+            transform: translateY(-50%);
+            background-color: orangered;
+            border-radius: 8px 0 0 0 8px;
+        }
+
+        .container.active .nav li a i {
+            transform: scale(1);
+            transition: 0.4s ease;
+            transition-delay: calc(0.08s * var(--i));
+        }
+
+        .container.active .nav li:hover a i {
+            transition: 0.2s ease;
+            color:aquamarine;
+        }
+
+        li a span {
+            position: absolute;
             color: #fff;
-            font-size: 17px;
-            padding: 10px 15px;
-            border-radius: 25px;
-            transition: background-color 0.3s ease;
+            margin: 22px 0;
+            font-weight: 500;
+            letter-spacing: 2px;
         }
 
-        nav ul li a:hover {
-            -webkit-text-stroke: 2px #fff;
-            color: transparent;
+        .container.active .nav li a span {
+            transform: translateX(15px);
+            transition: 0.4s ease;
+            transition-delay: calc(0.08s * var(--g));
         }
+
+        .container.active .nav li:hover a span {
+            transform: translateX(30px);
+            transition: 0.2s ease;
+            color: orangered;
+        }
+        
+
+        
     </style>
 </head>
 
 <body>
+<div class="container">
+    <a href="#" class="toggleBox">
+        <span class="icon"></span>
+    </a>
 
+    <ul class="nav">
+        <li>
+            <a href="#">
+                <i class="fa fa-home" style="--i:1"></i>
+                <span style="--g:1">Home</span>    
+                
+            </a>
+
+            <li>
+        <li>
+            <a href="#">
+                <i class="fa fa-user" style="--i:2"></i>
+                <span style="--g:2">About</span>    
+                
+            </a>
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-message" style="--i:3"></i>
+                    <span style="--g:3">Contact</span>    
+                    
+                </a>
+    
+                <li>
+
+        </li>
+    </ul>
+</div>
+
+<script>
+    var toggleClick = document.querySelector(".toggleBox");
+    var container = document.querySelector(".container");
+    toggleClick.addEventListener('click', ()=>{
+        toggleClick.classList.toggle('active');
+        container.classList.toggle('active');
+    })
+</script>
     <video autoplay muted loop playsinline class="video-bg">
         <source src="bg.mp4" type="video/mp4">
        
@@ -125,13 +279,7 @@
         <a href="project5.html">Project 5</a>
     </section>
 
-    <nav>
-        <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ABOUT ME</a></li>
-            <li><a href="#">CONTACT US</a></li>
-        </ul>
-    </nav>
+    
 
 </body>
 
