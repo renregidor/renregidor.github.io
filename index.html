@@ -295,7 +295,7 @@
         <a href="project5.html">Project 5</a>
     </section>
 
-    <!-- Contact Information Popup with Form -->
+    
     <div id="contactInfo">
         <h3>Contact Us</h3>
         <form action="https://formspree.io/f/your_form_id" method="POST">
@@ -318,7 +318,7 @@
         var contactInfo = document.getElementById("contactInfo");
 
         contactLink.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default link behavior
+            event.preventDefault();
             if (contactInfo.style.display === "none" || contactInfo.style.display === "") {
                 contactInfo.style.display = "block";
             } else {
