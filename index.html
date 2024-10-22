@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -119,7 +119,6 @@
             color: white;
         }
 
-
         .projects {
             display: flex;
             flex-direction: column;
@@ -190,7 +189,7 @@
 
         .container.active .nav li:hover a i {
             transition: 0.2s ease;
-            color:aquamarine;
+            color: aquamarine;
         }
 
         li a span {
@@ -212,58 +211,53 @@
             transition: 0.2s ease;
             color: orangered;
         }
-        
 
-        
+        /* Contact info styling */
+        #contactInfo {
+            display: none;
+            color: white;
+            padding: 20px;
+            background-color: #333;
+            position: absolute;
+            top: 100px;
+            right: 50px;
+            width: 300px;
+            border-radius: 10px;
+        }
+
     </style>
 </head>
 
 <body>
-<div class="container">
-    <a href="#" class="toggleBox">
-        <span class="icon"></span>
-    </a>
+    <div class="container">
+        <a href="#" class="toggleBox">
+            <span class="icon"></span>
+        </a>
 
-    <ul class="nav">
-        <li>
-            <a href="#">
-                <i class="fa fa-home" style="--i:1"></i>
-                <span style="--g:1">Home</span>    
-                
-            </a>
-
-            <li>
-        <li>
-            <a href="#">
-                <i class="fa fa-user" style="--i:2"></i>
-                <span style="--g:2">About</span>    
-                
-            </a>
-
+        <ul class="nav">
             <li>
                 <a href="#">
+                    <i class="fa fa-home" style="--i:1"></i>
+                    <span style="--g:1">Home</span>    
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-user" style="--i:2"></i>
+                    <span style="--g:2">About</span>    
+                </a>
+            </li>
+            <li>
+                <a href="#" id="contactLink">
                     <i class="fa fa-message" style="--i:3"></i>
                     <span style="--g:3">Contact</span>    
-                    
                 </a>
-    
-                <li>
+            </li>
+        </ul>
+    </div>
 
-        </li>
-    </ul>
-</div>
-
-<script>
-    var toggleClick = document.querySelector(".toggleBox");
-    var container = document.querySelector(".container");
-    toggleClick.addEventListener('click', ()=>{
-        toggleClick.classList.toggle('active');
-        container.classList.toggle('active');
-    })
-</script>
     <video autoplay muted loop playsinline class="video-bg">
         <source src="bg.mp4" type="video/mp4">
-       
     </video>
 
     <header>
@@ -277,20 +271,37 @@
         <a href="project3.html">Project 3</a>
         <a href="project4.html">Project 4</a>
         <a href="project5.html">Project 5</a>
-<section id="contact" style="color: white; padding: 50px; background-color: #333;">
-    <h2>Contact Us</h2>
-    <p>You can reach us at:</p>
-    <ul>
-        <li>Email: example@example.com</li>
-        <li>Phone: 123-456-7890</li>
-        <li>Address: 123 Main Street, City, Country</li>
-    </ul>
-</section>
-        
+    </section>
 
-        
- 
+    <!-- Contact Information Popup -->
+    <div id="contactInfo">
+        <h3>Contact Us</h3>
+        <p>Email: example@example.com</p>
+        <p>Phone: 123-456-7890</p>
+        <p>Address: 123 Main Street, City, Country</p>
+    </div>
 
+    <script>
+        var toggleClick = document.querySelector(".toggleBox");
+        var container = document.querySelector(".container");
+        toggleClick.addEventListener('click', () => {
+            toggleClick.classList.toggle('active');
+            container.classList.toggle('active');
+        });
+
+        var contactLink = document.getElementById("contactLink");
+        var contactInfo = document.getElementById("contactInfo");
+
+        contactLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            if (contactInfo.style.display === "none" || contactInfo.style.display === "") {
+                contactInfo.style.display = "block";
+            } else {
+                contactInfo.style.display = "none";
+            }
+        });
+    </script>
 </body>
 
 </html>
+
