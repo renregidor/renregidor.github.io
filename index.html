@@ -225,6 +225,28 @@
             border-radius: 10px;
         }
 
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: orangered;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
     </style>
 </head>
 
@@ -273,12 +295,15 @@
         <a href="project5.html">Project 5</a>
     </section>
 
-    <!-- Contact Information Popup -->
+    <!-- Contact Information Popup with Form -->
     <div id="contactInfo">
         <h3>Contact Us</h3>
-        <p>Email: example@example.com</p>
-        <p>Phone: 123-456-7890</p>
-        <p>Address: 123 Main Street, City, Country</p>
+        <form action="https://formspree.io/f/your_form_id" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message or Suggestion" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </div>
 
     <script>
@@ -304,4 +329,5 @@
 </body>
 
 </html>
+
 
