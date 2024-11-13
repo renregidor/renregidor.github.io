@@ -221,13 +221,6 @@ header .section__container {
   font-style: italic;
 }
 
- .banner__container {
-    background-image: url("container.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
 .banner__container .section__container {
   padding: 10rem 1rem;
   display: flex;
@@ -345,6 +338,14 @@ footer p {
   header .section__container {
     justify-content: flex-start;
   }
+
+  .banner__container {
+    background-image: url("container.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
 
   .header__content {
     max-width: 400px;
