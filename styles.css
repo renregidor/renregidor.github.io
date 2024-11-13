@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap"); 
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
 
 :root {
   --primary-color: #669ccb;
@@ -7,7 +7,6 @@
   --text-dark: #282d31;
   --text-light: #767268;
   --extra-light: #f3f4f6;
-
   --max-width: 1200px;
 }
 
@@ -143,7 +142,7 @@ header .section__container {
 
 .journey__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
 }
 
@@ -164,23 +163,16 @@ header .section__container {
   transform: scale(1.05);
 }
 
-/* New styles for info indicator */
-.indicator {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-left: auto;
-}
-
-.indicator i {
-  font-size: 1.5rem;
-  color: var(--primary-color);
+.indicator-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #ffffff;
+  border: none;
+  padding: 5px 10px;
   cursor: pointer;
-  transition: color 0.3s;
-}
-
-.indicator i:hover {
-  color: var(--primary-color-dark);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .card-description {
@@ -275,7 +267,7 @@ header .section__container {
 
 .display__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
 }
 
@@ -344,59 +336,19 @@ footer p {
   font-style: italic;
 }
 
+/* Responsive Design */
 @media (min-width: 640px) {
   .nav__links {
     display: flex;
   }
 
-  header .section__container {
-    justify-content: flex-start;
-  }
-
-  .header__content {
-    max-width: 400px;
-    align-items: flex-start;
-  }
-
-  .header__content p {
-    text-align: left;
-  }
-
   .journey__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 
   .display__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .display__card {
-    gap: 0;
-  }
-
-  .display__card i {
-    font-size: 1.75rem;
-  }
-
-  .display__card h4 {
-    font-size: 1rem;
-  }
-
-  .display__card p {
-    font-size: 0.7rem;
-  }
-}
-
-@media (min-width: 786px) {
-  .banner__container .section__container {
-    justify-content: flex-end;
-  }
-
-  .banner__content {
-    align-items: flex-end;
-    text-align: right;
-    max-width: 800px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .display__card {
@@ -404,17 +356,55 @@ footer p {
   }
 
   .display__card i {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+
+  .display__card h4 {
+    font-size: 1rem;
   }
 
   .display__card p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .journey__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .display__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .display__card {
+    gap: 1rem;
+  }
+
+  .display__card i {
+    font-size: 2.5rem;
+  }
+
+  .display__card h4 {
+    font-size: 1.2rem;
+  }
+
+  .display__card p {
+    font-size: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
+  .journey__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .display__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   .display__card {
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .display__card i {
@@ -426,6 +416,6 @@ footer p {
   }
 
   .display__card p {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
