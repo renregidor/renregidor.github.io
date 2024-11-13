@@ -16,10 +16,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Roboto", sans-serif;
-}
-
 .section__container {
   padding: 5rem 1rem;
   max-width: var(--max-width);
@@ -44,6 +40,10 @@ body {
 
 img {
   width: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
 }
 
 nav {
@@ -157,10 +157,6 @@ header .section__container {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
   cursor: pointer;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .country__card:hover {
@@ -225,7 +221,7 @@ header .section__container {
       rgba(35, 71, 103, 0.5),
       rgba(35, 71, 103, 0.5)
     ),
-    url("container.jpg");
+    url("assets/bg-2.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -340,6 +336,7 @@ footer p {
   font-style: italic;
 }
 
+/* Responsive Design */
 @media (min-width: 640px) {
   .nav__links {
     display: flex;
@@ -404,5 +401,21 @@ footer p {
 
   .display__grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .display__card {
+    gap: 1.5rem;
+  }
+
+  .display__card i {
+    font-size: 3rem;
+  }
+
+  .display__card h4 {
+    font-size: 1.5rem;
+  }
+
+  .display__card p {
+    font-size: 1.1rem;
   }
 }
