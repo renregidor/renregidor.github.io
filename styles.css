@@ -224,7 +224,7 @@ header .section__container {
 .banner__container {
   background-image: linear-gradient(rgba(35, 71, 103, 0.5),
       rgba(35, 71, 103, 0.5)),
-    url("assets/bg-2.jpg");
+    url("container.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -347,14 +347,6 @@ footer p {
   header .section__container {
     justify-content: flex-start;
   }
-
-  .banner__container {
-    background-image: url("container.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
 
   .header__content {
     max-width: 400px;
