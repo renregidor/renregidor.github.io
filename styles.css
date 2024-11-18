@@ -333,16 +333,32 @@ footer p {
     display: flex;
   }
 
+  @media (max-width: 639px) {
+    .banner__container {
+        height: 40vh;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
   header .section__container {
     justify-content: flex-start;
   }
 
   .banner__container {
-    background-image: url("container.jpg");
+    position: relative;
+    background-image: url('container.jpg');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-  }
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
 
   .header__content {
     max-width: 400px;
