@@ -86,9 +86,7 @@ nav {
 
 header {
   height: 100vh;
-  background-image: linear-gradient(rgba(45, 92, 132, 0.5),
-      rgba(45, 92, 132, 0.5)),
-    url("purple.jpg");
+  background-image: linear-gradient(rgba(45, 92, 132, 0.5), rgba(45, 92, 132, 0.5)), url("purple.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -345,7 +343,6 @@ footer p {
     background-repeat: no-repeat;
     background-size: cover;
   }
-
 
   .header__content {
     max-width: 400px;
