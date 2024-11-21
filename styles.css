@@ -347,7 +347,7 @@ footer p {
 
 @media (min-width: 640px) {
   .card-description {
-    font-size: 14px;
+    font-size: 12px;
     padding: 15px; 
     overflow-y: scroll;
     line-height: 1.4;
