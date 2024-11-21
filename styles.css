@@ -345,7 +345,7 @@ footer p {
   font-style: italic;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 639px) {
   .card-description {
     font-size: 12px;
     padding: 15px; 
