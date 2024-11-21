@@ -152,8 +152,13 @@ header .section__container {
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .country__card:hover {
@@ -228,6 +233,16 @@ header .section__container {
   gap: 0.5rem;
   color: var(--text-light);
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.country__name:hover {
+  color: var(--primary-color);
+}
+
+.card:hover .card-description {
+  display: flex;
+  opacity: 1;
 }
 
 .country__name i {
