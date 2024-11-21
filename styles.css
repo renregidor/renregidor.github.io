@@ -219,6 +219,21 @@ header .section__container {
   font-style: italic;
 }
 
+.banner__container {
+  position: relative;
+  background-image: url('container.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+}
+
 .banner__container .section__container {
   padding: 10rem 1rem;
   display: flex;
@@ -331,42 +346,6 @@ footer p {
 @media (min-width: 640px) {
   .nav__links {
     display: flex;
-  }
-
-  @media (max-width: 639px) {
-    .banner__container {
-        height: 40vh;
-        background-size: cover;
-        background-position: center;
-    }
-}
-
-  header .section__container {
-    justify-content: flex-start;
-  }
-
-  .banner__container {
-    position: relative;
-    background-image: url('container.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    color: white;
-    text-align: center;
-}
-
-  .header__content {
-    max-width: 400px;
-    align-items: flex-start;
-  }
-
-  .header__content p {
-    text-align: left;
   }
 
   .journey__grid {
