@@ -194,6 +194,7 @@ header .section__container {
   text-align: center;
   font-size: 18px;
   transition: opacity 0.3s ease;
+  overflow: auto;
 }
 
 .card-description.active {
@@ -344,6 +345,11 @@ footer p {
 }
 
 @media (min-width: 640px) {
+  .card-description {
+    font-size: 14px;
+    padding: 10px; 
+    overflow-y: scroll;
+  }
   .nav__links {
     display: flex;
   }
