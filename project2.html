@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Weather API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url(mountain.jpg) no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        .input-group input {
+            border-radius: 20px 0 0 20px;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        .input-group .btn {
+            border-radius: 0 20px 20px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(40, 71, 119);
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group .btn:hover {
+            background-color: #ff4d4d;
+            transform: scale(1.1);
+        }
+
+        .weather-status {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #4690d6, #0d3064);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+            color: #FFFFFF;
+        }
+
+
+        .weather-status img {
+            width: 100px;
+            height: auto;
+            animation: float 2s infinite ease-in-out;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #city {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        #temp {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        #weather {
+            font-size: 1.5rem;
+            text-transform: capitalize;
+        }
+
+        .loading-rain {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        width: 100px;
+        height: 100px;
+    }
+
+    .raindrop {
+        width: 10px;
+        height: 20px;
+        background-color: #007bff;
+        border-radius: 50%;
+        animation: rain-fall 5s infinite ease-in-out;
+        opacity: 0.7;
+    }
+
+    .raindrop:nth-child(2) {
+        animation-delay: 0.8s;
+    }
+
+    .raindrop:nth-child(3) {
+        animation-delay: 1.6s;
+    }
+
+    .raindrop:nth-child(4) {
+        animation-delay: 2.4s;
+    }
+
+    .raindrop:nth-child(5) {
+        animation-delay: 3.2s;
+    }
+
+    @keyframes rain-fall {
+        0% {
+            transform: translateY(0) scaleY(1);
+            opacity: 0.7;
+        }
+        50% {
+            transform: translateY(75px) scaleY(1.2);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(150px) scaleY(0.8);
+            opacity: 0;
+        }
+    }
+
+    .d-none {
+        display: none;
+    }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="col-md-6 m-auto py-5">
+            <div class="input-group mb-3">
+                <input id="city-name" type="text" class="form-control" placeholder="Enter a location for Weather ...">
+                <div class="input-group-append">
+                    <button onclick="searchTemperature()" type="button" class="btn btn-danger">Search</button>
+                </div>
+            </div>
+        </form>
+        <div class="weather-status text-white text-center">
+            <img id="image-icon" src="https://openweathermap.org/img/wn/02d@2x.png" alt="">
+            <h1 id="city">Philippines</h1>
+            <h3><span id="temp">32</span>&deg;C</h3>
+            <h1 class="lead" id="weather">Clouds</h1>
+        </div>
+        <div id="loading-rain" class="loading-rain d-none">
+            <div class="raindrop"></div>
+            <div class="raindrop"></div>
+            <div class="raindrop"></div>
+            <div class="raindrop"></div>
+            <div class="raindrop"></div>
+        </div>
+        
+    </div>
+    <script src="weather.js"></script>
+</body>
+
+</html>
