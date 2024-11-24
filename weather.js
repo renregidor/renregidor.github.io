@@ -1,61 +1,46 @@
-const API_KEY = `14951c93f3d11e8ac8bed96dd90e8bc7`;
-
-// Function to toggle the rain animation visibility
-const toggleLoadingRain = (isLoading) => {
-    const rain = document.getElementById('loading-rain');
-    if (isLoading) {
-        rain.classList.remove('d-none'); // Show rain animation
-    } else {
-        rain.classList.add('d-none'); // Hide rain animation
+let id = '9505fd1df737e20152fbd78cdb289b6a';
+let url = 'https://api.openweathermap.org/data/2.5/weather?units=metric&appid=' + id;
+let city = document.querySelector('.name');
+let form = document.querySelector("form");
+let temperature = document.querySelector('.temperature');
+let description = document.querySelector('.description');
+let valueSearch = document.getElementById('name');
+let clouds = document.getElementById('clouds');
+let humidity = document.getElementById('humidity');
+let pressure = document.getElementById('pressure');
+let main = document.querySelector('main');
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (valueSearch.value != '') {
+        searchWeather();
     }
-};
+});
+const searchWeather = () => {
+    fetch(url + '&q=' + valueSearch.value)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.cod == 200) {
+                city.querySelector('figcaption').innerHTML = data.name;
+                city.querySelector('img').src = `https://flagsapi.com/${data.sys.country}/shiny/32.png`;
+                temperature.querySelector('img').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
+                temperature.querySelector('span').innerText = data.main.temp;
+                description.innerText = data.weather[0].description;
 
-const searchTemperature = () => {
-    const city = document.getElementById('city-name').value.trim();
-
-    if (city === '') {
-        alert('Please enter a city name!');
-        return;
-    }
-
-    // Show rain animation and set loading message
-    toggleLoadingRain(true);
-    setInnerText('city', 'Loading...');
-    setInnerText('temp', '');
-    setInnerText('weather', '');
-    const imgIcon = document.getElementById('image-icon');
-    imgIcon.setAttribute('src', '');
-
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
-    fetch(url)
-        .then((res) => {
-            if (!res.ok) {
-                throw new Error('City not found');
+                clouds.innerText = data.clouds.all;
+                humidity.innerText = data.main.humidity;
+                pressure.innerText = data.main.pressure;
+            } else {
+                main.classList.add('error');
+                setTimeout(() => {
+                    main.classList.remove('error');
+                }, 1000);
             }
-            return res.json();
+            valueSearch.value = '';
         })
-        .then((data) => displayTemperature(data))
-        .catch((error) => {
-            console.error('Error fetching the weather data:', error);
-            setInnerText('city', 'Unable to fetch data. Try again.');
-        })
-        .finally(() => {
-            toggleLoadingRain(false); // Hide rain animation after fetch completes
-        });
-};
-
-const setInnerText = (id, text) => {
-    document.getElementById(id).innerText = text;
-};
-
-const displayTemperature = (temperature) => {
-    console.log(temperature);
-
-    setInnerText('city', temperature.name);
-    setInnerText('temp', temperature.main.temp + '°C');
-    setInnerText('weather', temperature.weather[0].main);
-
-    const url = `http://openweathermap.org/img/wn/${temperature.weather[0].icon}@2x.png`;
-    const imgIcon = document.getElementById('image-icon');
-    imgIcon.setAttribute('src', url);
-};
+}
+const initApp = () => {
+    valueSearch.value = 'Washington';
+    searchWeather();
+}
+initApp();
