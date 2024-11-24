@@ -1,168 +1,253 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather API</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-        body {
-            background: url(mountain.jpg) no-repeat;
-            background-size: cover;
-            height: 100vh;
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        .input-group input {
-            border-radius: 20px 0 0 20px;
-            border: none;
-            padding: 10px;
-            font-size: 20px;
-        }
-
-        .input-group .btn {
-            border-radius: 0 20px 20px 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: rgb(40, 71, 119);
-            border: none;
-            transition: all 0.3s ease;
-        }
-
-        .input-group .btn:hover {
-            background-color: #ff4d4d;
-            transform: scale(1.1);
-        }
-
-        .weather-status {
-            margin-top: 20px;
-            background: linear-gradient(135deg, #4690d6, #061730);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
-            color: #FFFFFF;
-        }
-
-
-        .weather-status img {
-            width: 100px;
-            height: auto;
-            animation: float 2s infinite ease-in-out;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        #city {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-
-        #temp {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        #weather {
-            font-size: 1.5rem;
-            text-transform: capitalize;
-        }
-
-        .loading-rain {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1000;
-        display: flex;
-        justify-content: space-between;
-        width: 100px;
-        height: 100px;
-    }
-
-    .raindrop {
-        width: 10px;
-        height: 20px;
-        background-color: #007bff;
-        border-radius: 50%;
-        animation: rain-fall 5s infinite ease-in-out;
-        opacity: 0.7;
-    }
-
-    .raindrop:nth-child(2) {
-        animation-delay: 0.8s;
-    }
-
-    .raindrop:nth-child(3) {
-        animation-delay: 1.6s;
-    }
-
-    .raindrop:nth-child(4) {
-        animation-delay: 2.4s;
-    }
-
-    .raindrop:nth-child(5) {
-        animation-delay: 3.2s;
-    }
-
-    @keyframes rain-fall {
-        0% {
-            transform: translateY(0) scaleY(1);
-            opacity: 0.7;
-        }
-        50% {
-            transform: translateY(75px) scaleY(1.2);
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(150px) scaleY(0.8);
-            opacity: 0;
-        }
-    }
-
-    .d-none {
-        display: none;
-    }
-        
-    </style>
 </head>
+<style>
+    body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(mountain.jpg) no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 300px;
+    height: max-content;
+    min-height: 300px;
+    background-color: #f7f7f7;
+    border-radius: 30px;
+    box-shadow: 0 30px 50px #5553;
+    padding: 30px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 50px 70px rgba(0, 0, 0, 0.2);
+}
+
+main form {
+    border: 1px solid #5552;
+    display: flex;
+    border-radius: 30px;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease;
+}
+
+main form:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+main form input,
+main form button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+main form input:focus {
+    outline: 2px solid rgb(37, 107, 151);
+    border-radius: 30px;
+    transition: outline 0.3s ease;
+}
+
+main form button {
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+main form button:hover {
+    background-color: rgb(37, 107, 151);
+    transform: scale(1.1);
+    color: #fff;
+}
+
+main form i {
+    opacity: 0.7;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+main form button:hover i {
+    transform: rotate(20deg);
+    color: #fff;
+}
+
+main .result {
+    padding-top: 20px;
+    text-align: center;
+}
+
+main .result .name {
+    font-weight: bold;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+main .temperature img {
+    width: 150px;
+    filter: drop-shadow(0 10px 50px #555);
+    transition: transform 0.3s ease;
+    animation: float 3s ease-in-out infinite;   
+}
+
+main .temperature img:hover {
+    transform: scale(1.05) rotate(10deg);
+}
+
+main .temperature figcaption {
+    font-size: 3em;
+}
+
+main .description {
+    padding: 10px 0 30px;
+}
+
+main ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+main li {
+    background-color: rgb(37, 107, 151);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px 10px;
+    background-image: linear-gradient(to bottom,
+            transparent 50%,
+            #0003 50%);
+    font-weight: bold;
+    font-size: small;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+main ul li i {
+    font-size: 2em;
+    margin: 20px 0;
+    display: block !important;
+    transition: transform 0.3s ease, color 0.3s ease;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+main li:nth-child(2) {
+    background-color: #5f0c3b;
+}
+
+main li:nth-child(3) {
+    background-color: #7a7331;
+}
+
+main.error {
+    animation: errorEffect 0.3s linear 1;
+}
+
+@keyframes errorEffect {
+    0% {
+        transform: translate(10px, 5px);
+    }
+
+    25% {
+        transform: translate(-5px, 0);
+    }
+
+    50% {
+        transform: translate(8px, 2px);
+    }
+
+    75% {
+        transform: translate(-2px, 5px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+
+    
+}
+
+</style>
 
 <body>
-    <div class="container">
-        <form class="col-md-6 m-auto py-5">
-            <div class="input-group mb-3">
-                <input id="city-name" type="text" class="form-control" placeholder="Enter a location">
-                <div class="input-group-append">
-                    <button onclick="searchTemperature()" type="button" class="btn btn-danger">Search</button>
-                </div>
-            </div>
+    <main>
+        <form>
+            <input type="text" id="name" autocomplete="off">
+            <button>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
         </form>
-        <div class="weather-status text-white text-center">
-            <img id="image-icon" src="https://openweathermap.org/img/wn/02d@2x.png" alt="">
-            <h1 id="city">Philippines</h1>
-            <h3><span id="temp">32</span></h3>
-            <h1 class="lead" id="weather">Clouds</h1>
-        </div>
-        <div id="loading-rain" class="loading-rain d-none">
-            <div class="raindrop"></div>
-            <div class="raindrop"></div>
-            <div class="raindrop"></div>
-            <div class="raindrop"></div>
-            <div class="raindrop"></div>
-        </div>
-        
-    </div>
+        <section class="result">
+
+            <figure class="name">
+                <figcaption>Philippines</figcaption>
+                <img src="https://flagsapi.com/GB/shiny/32.png">
+            </figure>
+
+            <figure class="temperature">
+                <img src="https://openweathermap.org/img/wn/10d@4x.png">
+                <figcaption>
+                    <span>31</span>
+                    <sup>o</sup>
+                </figcaption>
+            </figure>
+            <p class="description">overcast clouds</p>
+            <ul>
+                <li>
+                    <span>clouds</span>
+                    <i class="fa-solid fa-cloud"></i>
+                    <span id="clouds">98</span>%
+                </li>
+                <li>
+                    <span>humidity</span>
+                    <i class="fa-solid fa-droplet"></i>
+                    <span id="humidity">98</span>%
+                </li>
+                <li>
+                    <span>pressure</span>
+                    <i class="fa-solid fa-gauge"></i>
+                    <span id="pressure">1011</span>hPa
+                </li>
+            </ul>
+        </section>
+    </main>
+
     <script src="weather.js"></script>
 </body>
 
