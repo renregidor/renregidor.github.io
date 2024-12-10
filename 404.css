@@ -78,7 +78,6 @@ body:hover {
     .footer {
         max-width: 300px;
         left: 50%;
-        transform: translateX(-50%);
     }
     .footer button {
         min-width: 120px;
