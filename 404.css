@@ -68,6 +68,19 @@ body:hover {
 }
 
 
+@media (max-width: 600px) {
+    .footer {
+        left: 50%;
+        transform: translateX(-50%); 
+    }
+
+    .footer button {
+        min-width: 120px; 
+        font-size: 0.9rem; 
+        padding: 0.8rem;
+    }
+}
+
 @media (min-width: 640px) {
     .container {
         max-width: 1200px;
@@ -85,10 +98,10 @@ body:hover {
     }
     
     .footer button {
-    min-width: 120px; 
-    font-size: 0.9rem; 
-    padding: 0.8rem; 
-  }
+        min-width: 120px;
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
 }
 
 @media (min-width: 1024px) {
