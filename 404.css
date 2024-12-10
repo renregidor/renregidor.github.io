@@ -83,6 +83,12 @@ body:hover {
     .footer {
         max-width: 300px;
     }
+    
+    .footer button {
+    min-width: 120px; 
+    font-size: 0.9rem; 
+    padding: 0.8rem; 
+  }
 }
 
 @media (min-width: 1024px) {
