@@ -40,7 +40,7 @@ body:hover {
     margin: auto;
     display: grid;
     color: var(--text-dark);
-    transition: transform 0.3s ease;
+    transition: transform 0.3 ease;
 }
 
 .footer {
@@ -75,13 +75,14 @@ body:hover {
         gap: 2rem;
     }
 
+    .container img {
+        max-width: 550px;
+        grid-area: 1/1/3/2;
+    }
+
     .footer {
         max-width: 300px;
     }
-    .footer button {
-        min-width: 120px;
-        font-size: 0.9rem;
-        padding: 0.8rem;
 }
 
 @media (min-width: 1024px) {
